@@ -1,11 +1,8 @@
 ---
 layout: page
 title: Hwijae Lee's Blog
-tagline: 
 ---
 {% include JB/setup %}
-
-    
 
 <ul class="posts">
   {% for post in site.posts %}
