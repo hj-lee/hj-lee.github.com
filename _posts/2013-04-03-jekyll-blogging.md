@@ -42,7 +42,7 @@ tags: [jekyll, jekyll-bootstrap, github]
 * 소스 코드를 추가 하는 것이 간단해야 함
 * 편집을 마치면 바로 올릴수 있을 것
 
-당시에는 [RDoc][rdoc] 을 [사용했었는데](http://hjlee-p.blogspot.kr/2008/08/rdoc-blog.html), 앞의 세가지는 만족했지만, 마지막이 여전히 불편했다.
+당시에 [RDoc][rdoc] 을 [사용](http://hjlee-p.blogspot.kr/2008/08/rdoc-blog.html)하다가 [Markdown][] 을 사용했었는데, 앞의 세가지는 만족했지만, 마지막이 여전히 불편했다.
 글을 작성하고 나서 HTML 변환을 하고, Copy & Paste 를 해야했고 제목은 또 따로 써야 했다. 약간의 불편함이라고 할 수 있겠지만, 성가셨던 것은 사실이다.
 
 이러 저런 이유로 거의 블로그 글을 쓰지 않고 있었는데 최근에 여유가 많아지면서, 다시 블로깅 방법을 고민하다가 찾아낸 것이 [Github Pages][] 와 [Jekyll][] 의 조합이다. 이것이 만족스러운 해결책이 될 것 같다.
