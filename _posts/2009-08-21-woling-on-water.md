@@ -48,7 +48,7 @@ tags: [book]
 
 > "... 난 죽음 같은 우리 문화 속에서는, 누구라도 할 수 있는 가장 혁명적인 일은 제 가슴을 따르는 것이라는 말을 들은 적 있다. 나는 덧붙이련다. 일단 당신이 그것을 - 당신 자신의 가슴을 따르는 일을 - 하기 시작했다면, 당신이 할 수 있는 가장 도덕적이고 혁명적인 일은 다른 이들이 **저들의** 가슴을 찾아내어, 그들 자신을 발견하도록 돕는 일이다. 그것은 보기보다 훨씬 더 쉽다. ..."
 
-## 관련 다른 블로그들
+### 관련 다른 블로그들
 
 * [Proof Of Youth](http://trueandmonster.tistory.com/602)
 
@@ -56,7 +56,7 @@ tags: [book]
 
 * [Minority life](http://vitaminl.net/562)
 
-## 원서 Reviews
+### 원서 Reviews
 
 * [Amazon](http://www.amazon.com/Walking-Water-Reading-Writing-Revolution/dp/1931498482)
 
