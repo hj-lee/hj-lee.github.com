@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Jekyll과 Github Pages로 블로깅"
+title: "Jekyll 과 Github Pages 로 블로깅"
 description: ""
 category: Writing
 tags: [jekyll, jekyll-bootstrap, github]
@@ -8,22 +8,32 @@ tags: [jekyll, jekyll-bootstrap, github]
 {% include JB/setup %}
 
 [Blogger]: http://blogger.com/ "Blogger.com"
+
 [Github]: http://github.com/
 [Github Pages]: http://pages.github.com
+
 [Jekyll]: http://github.com/mojombo/jekyll
-[Workflow]: http://qubitlogs.com/Workflow/2013/01/22/jekyll-blogging-reference-and-perfect-workflow-guide/
- "Jekyll blogging workflow guide"
-[Github Pages Help]: http://help.github.com/categories/20/articles
+[Jekyll Bootstrap]: http://jekyllbootstrap.com/
+
 [Markdown]: http://daringfireball.net/projects/markdown/syntax
 [rdoc]: http://rdoc.rubyforge.org/
 [Textile]: http://txstyle.org/
 
-[Jekyll Bootstrap]: http://jekyllbootstrap.com/
+[YAML Front Matter]: http://github.com/mojombo/jekyll/wiki/YAML-Front-Matter
+
+[Pygments]: http://pygments.org/
+[Pygments langs]: http://pygments.org/docs/lexers/
+
+[Liquid 템플릿]: http://github.com/Shopify/liquid/wiki/Liquid-for-Designers
+[확장된 Liquid 템플릿]: http://github.com/mojombo/jekyll/wiki/liquid-extensions
+
+[http://localhost:4000]: http://localhost:4000
+[My Blog]: http://hj-lee.github.com/
 
 ### 소개
 
-예전에 잠깐 [Blogger][]로 블로깅을 했었던 적이 있다.
-프로그래밍 관련 글을 작성하고 올리는 것이 약간 불편했던 것이 사실이다.
+예전에 잠깐 [Blogger][] 로 블로깅을 했었던 적이 있다.
+글, 특히 프로그래밍 관련 글을 작성하고 올리는 것이 불편했던 것이 사실이다.
 
 내가 원했던 것들:
 
@@ -32,13 +42,13 @@ tags: [jekyll, jekyll-bootstrap, github]
 * 소스 코드를 추가 하는 것이 간단해야 함
 * 편집을 마치면 바로 올릴수 있을 것
 
-당시에는 [RDoc][rdoc]을 사용했었는데, 앞의 세가지는 만족했지만, 마지막이 여전히 불편했다.
-글을 작성하고 나서 html 변환을 하고, Copy & Paste 를 해야했고 제목은 또 따로 써야 했다. 약간의 불편함이라고 할 수 있겠지만, 성가셨던 것은 사실이다.
+당시에는 [RDoc][rdoc] 을 사용했었는데, 앞의 세가지는 만족했지만, 마지막이 여전히 불편했다.
+글을 작성하고 나서 HTML 변환을 하고, Copy & Paste 를 해야했고 제목은 또 따로 써야 했다. 약간의 불편함이라고 할 수 있겠지만, 성가셨던 것은 사실이다.
 
-이러 저런 이유로 거의 블로그 글을 쓰지 않고 있었는데 최근에 여유가 많아지면서, 다시 블로깅 방법을 고민하다가 찾아낸 것이 [Github Pages][]와 [Jekyll][]의 조합이다. 이것이 만족스러운 해결책이 될 것 같다.
-([Github Pages][]는 [Github][]에서 제공해주는 사용자별 웹 호스팅이라 할 것이고, [Jekyll][]은 말하자면 "정적 웹싸이트 생성기"라고 할 수 있다.)
+이러 저런 이유로 거의 블로그 글을 쓰지 않고 있었는데 최근에 여유가 많아지면서, 다시 블로깅 방법을 고민하다가 찾아낸 것이 [Github Pages][] 와 [Jekyll][] 의 조합이다. 이것이 만족스러운 해결책이 될 것 같다.
+([Github Pages][] 는 [Github][] 에서 제공해주는 사용자별 웹 호스팅이라 할 것이고, [Jekyll][] 은 말하자면 "정적 웹싸이트 생성기"라고 할 수 있다.)
 
-여기 저기 둘러보다가 [Jekyll Bootstrap][]을 기반으로 작업하기로 했다.
+여기 저기 둘러보다가 [Jekyll Bootstrap][] 을 기반으로 작업하기로 했다.
 
 ### 필요한 것들
 
@@ -48,11 +58,11 @@ tags: [jekyll, jekyll-bootstrap, github]
 * [Github][] 계정
 * Git client
 * Git 기본 사용법에 대한 이해
-* [Markdown][]에 대한 이해(혹은 [Textile][])
+* [Markdown][] 에 대한 이해
 
-이것만 있으면 Github에 블로그를 운영할 수 있다. Push 될 때마다 Github가 알아서 jekyll 을 돌려주기 때문이다. 하지만, 미리보기나 자동으로 post 화일 생성 같은 것은 할 수 없기 때문에 그리 바람직하지는 않다.
+이것만 있으면 [Github][] 에 블로그를 운영할 수 있다. Push 될 때마다 [Github][] 가 알아서 페이지들을 다시 만들어 주기 때문이다. 하지만, 미리보기나 자동으로 포스트(post) 파일 생성 같은 것은 할 수 없기 때문에 그리 바람직하지는 않다.
 
-#### Jekyll 사용하기 위해 필요한 것들
+#### [Jekyll][] 과 [Jekyll Bootstrap][] 을 사용하기 위해 필요한 것들
 
 * Ruby (1.8)
 * Rubygems (gem)
@@ -63,33 +73,34 @@ tags: [jekyll, jekyll-bootstrap, github]
 
 #### 일단 만들기
 
-우선 Jekyll을 깔았다. 참고로 `--user-install` 옵션은 root로 깔기 싫어서 한 것이다. 이 경우 `jekyll` 실행화일의 링크를 만들어 주거나 PATH 에 넣어 주어야 한다.
-혹 Jekyll 배포본 페키지가 있으면 그걸 까는 것도 한가지 방법이다.
+우선 [Jekyll][] 을 깔았다. 참고로 `--user-install` 옵션은 root로 깔기 싫어서 한 것이다. 이 경우 `jekyll` 실행파일의 링크를 만들어 주거나 `PATH` 에 넣어 주어야 한다.
 
-{% highlight console %}
-$ gem install --user-install jekyll
+{% highlight bash %}
+gem install --user-install jekyll
 {% endhighlight %}
 
-그리고 Jekyll Bootstrap을 clone 해 왔다. `hj-lee`는 내 Github 계정이다. 그대로 복사하지는 마시길.
+그리고 [Jekyll Bootstrap][] 을 clone 해 왔다. `hj-lee` 는 내 [Github][] 계정이다. 그대로 복사하지는 마시길.
 
-{% highlight console %}
-$ git clone  https://github.com/plusjade/jekyll-bootstrap.git hj-lee.github.com
+{% highlight bash %}
+git clone  http://github.com/plusjade/jekyll-bootstrap.git hj-lee.github.com
+cd hj-lee.github.com
+git remote set-url origin git@github.com:hj-lee/hj-lee.github.com.git
 {% endhighlight %}
 
-이제 Jekyll Bootstrap의 기본 페이지를 감상해 보자.
+이제 [Jekyll Bootstrap][] 의 기본 페이지를 감상해 보자.
 
-{% highlight console %}
-$ cd hj-lee.github.com
-$ jekyll --server
+{% highlight bash %}
+rake preview
 {% endhighlight %}
 
-[http://localhost:4000](http://localhost:4000) 에서 확인해 보자.
-이제 작업이 좀 필요하다.
+`rake preview` 는 `jekyll --server --auto` 를 실행시키는 또 다른 방법이다.
+[http://localhost:4000][] 에서 확인해 보자.
+작업이 확실히 필요함을 알 수 있다.
 
 * `_config.yml` - `title`, `author`, `production_url` 항목을 수정한다.
 * 예제 블로그 포스트는 지워 버린다 - `rm -rf _posts/core-samples`
 
-`index.md`를 아래와 같이 바꿨다. `title`을 바꾸고 블로그 목록만 나오게 빠꿨다.
+`index.md` 를 아래와 같이 바꿨다. `title` 을 바꾸고 글 목록만 나오게 했다.
 
 {% highlight html+jinja %}
 {% raw %}
@@ -107,35 +118,92 @@ title: Hwijae Lee's Blog
 {% endraw %}
 {% endhighlight %}
 
+이제 바뀐 것이 잘 적용되어서 만들어 지는지 확인해 볼 때다.
+전에 띄운 `rake preview` 가 아직 실행 중이라면 죽이고 다시 실행시킨다.
+[http://localhost:4000][] 을 새로고침 해보자.
+
 #### 새로운 블로그 포스트
 
-이제 새로운 글을 써볼 때다. 
+[Jekyll Bootstrap][] 은 새로운 포스트를 쉽게 만들 수 있는 기능을 제공한다.
 
-{% highlight console %}
-$ rake post title="jekyll blogging"
+{% highlight bash %}
+rake post title="jekyll blogging"
 {% endhighlight %}
 
-오늘 날짜로 `_posts` 디렉토리 아래에 Markdown 화일이 만들어 진다. 혹은 아래와 같이 날짜를 지정할 수도 있다.
+오늘 날짜로 `_posts` 디렉토리 아래에 [Markdown][] 파일이 만들어 진다. 혹은 아래와 같이 날짜를 지정할 수도 있다.
 
-{% highlight console %}
-$ rake post title="jekyll blogging" date="2013-04-03"
+{% highlight bash %}
+rake post title="jekyll blogging" date="2013-04-03"
 {% endhighlight %}
 
-이렇게 하면 `_posts` 디렉토리 안에 `2013-04-03-jekyll-blogging.md` 화일이 만들어진다. `rake` 로 포스트를 만들 때 `title`은 화일명과 생성된 화일 안의 `title` 항목을 미리 채우는 데 사용된다. 실제 제목은 화일 안에 있는 `title` 항목이 결정하기 때문에, 화일명을 일치시키려고 애쓸 필요는 없다.
+이렇게 하면 `_posts` 디렉토리 안에 `2013-04-03-jekyll-blogging.md` 파일이 만들어진다. `rake` 로 포스트를 만들 때 `title` 은 파일명과 생성된 파일 안의 `title` 항목을 미리 채우는 데 사용된다. 실제 제목은 파일 안에 있는 `title` 항목이 결정하기 때문에, 파일명을 일치시키려고 애쓸 필요는 없다.
 
-#### Push 하고 확인
+[Jekyll][] 의 페이지(page)와 포스트(post) 파일은 [YAML Front Matter][] 부분과 내용 부분으로 나뉜다. 내용 부분은 [Liquid 템플릿][]의  [확장 버젼][확장된 Liquid 템플릿]과 확장자에 따른 마크업 처리를 통해 최종 HTML 파일을 만들게 된다. 앞에서 언급한 대로 [Jekyll Bootstrap][] 은 기본 [Markdown][] 포스트 파일을 만들어 주는데, 포스트 파일에서 [Liquid 템플릿][] 을 쓸 일은 그리 많지 않다.
 
-#### Comment 관리
+#### Github Pages에 올리기
 
-disqus 등록
+[Github][] 계정에 `hj-lee.github.com` 라는 이름으로 빈 Repository 를 만든다.
+혹, 지금까지 수정된 내용과 새로만들어진 포스트를 `commit` 하지 않았다면 `commit` 해준다. 이제 `push` 하면 [Github][]에서 나의 블로그 사이트를 만들기 시작한다. 
 
-analytics 일단 보류
+{% highlight bash %}
+git push origin master
+{% endhighlight %}
 
-#### Theme 변경
+성급하게 [http://hj-lee.github.com/][My Blog] 에 가보니, 조금 기다리라고 나온다. 최대 10분 걸린단다. 그래서 잠시 다른 일 하다가 새로 고침 해보니, 이예~~ 이제 내 블로그가 만들어졌다.
 
-http://themes.jekyllbootstrap.com/
+#### 코드 하이라이팅(Code Highlighting)
 
-$ rake theme:install git="git://github.com/jekyllbootstrap/theme-mark-reid.git"
+[Jekyll][] 은 [Pygments][] 를 이용한 코드 하이라이팅을 지원한다. 문서 내에 사용하려면 [확장된 Liquid 템플릿][] 의 `highlight` 테그를 사용하면 된다.
+예를 들어 아래와 같은 내용을 문서 파일 안에 추가 하면
 
-#### 소스 코드 포함하기
+{% raw %}
+	{% highlight ruby %}
+	desc "Launch preview environment"
+	task :preview do
+	  system "jekyll --auto --server"
+	end # task :preview
+	{% endhighlight %}
+{% endraw %}
 
+아래와 같은 결과가 보여진다.
+(참고로 이 코드는 [Jekyll Bootstrap][] 의 Rakefile 일부이다.)
+
+{% highlight ruby %}
+desc "Launch preview environment"
+task :preview do
+  system "jekyll --auto --server"
+end # task :preview
+{% endhighlight %}
+
+아쉽게도 [Jekyll Bootstrap][]의 기본 tweeter 테마에는 코드 하이라이팅을 위한 CSS 파일이 포함되어 있지 않아서 살짝 수정이 필요했다.
+
+1. 예제 [syntax.css](http://github.com/mojombo/tpw/raw/master/css/syntax.css) 파일을 받아서 `assets/themes/twitter/css/syntax.css` 로 저장
+2. `_includes/themes/twitter/default.html` 의 styles 부분에
+`{%raw%}<link href="{{ ASSET_PATH }}/css/syntax.css" rel="stylesheet" type="text/css">{%endraw%}` 추가
+
+
+### 기타
+
+이것으로 일단 기본이 되었다. 새로운 글을 올리거나 바뀐 내용을 올리려면 그저 `commit` 하고 `push` 하기만 하면 된다.
+
+이 외에도 [Jekyll Bootstrap][] 은 [Theme 지원](http://themes.jekyllbootstrap.com/)을 하고, 코멘트 지원 사이트나, 분석 툴들과 연계가 쉽게 만들어져 있다. 현재 [disqus](http://disqus.com/) 에 가입해서 사용을 시작했다.
+
+[Usage]: http://github.com/mojombo/jekyll/wiki/usage
+[Configuration]: http://github.com/mojombo/jekyll/wiki/configuration
+
+아래에 중요한 페이지들을 모아 보았다.
+
+#### 전반적인 이해와 처음 셋업시
+
+* [Github Pages][]
+* [Jekyll][] - 더불어 [Usage][] 와 [Configuration][]
+* [Jekyll Bootstrap][]
+
+#### 문서(페이지나 포스트) 작성시 필요한 부분
+
+* [Markdown][] 혹은 [Markdown 한글 설명](http://blog-kkamagui.cloudfoundry.com/posts/1) - 필수
+* [Liquid 템플릿][] - 포스트 작성시에는 그다지 필요 없음.
+  `raw` 테그는 가끔 유용
+* [확장된 Liquid 템플릿][] - 포스트 작성시 `highlight` 테그 외에는 그다지 필요 없음.
+* [Pygments 지원 언어들][Pygments langs] - `highlight` 테그 사용 시
+* [YAML Front Matter][]
