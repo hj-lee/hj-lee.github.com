@@ -8,3 +8,6 @@ Thumbs.db
 
 .rbenv-version
 .rvmrc
+/.emacs.desktop
+/.emacs.desktop.lock
+*~
