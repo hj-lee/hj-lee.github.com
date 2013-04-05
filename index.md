@@ -1,6 +1,7 @@
 ---
 layout: page
-title: Hwijae Lee's Blog <a href='http://feeds.feedburner.com/HwijaeLeesBlog'><img src='/images/feed32.png' alt='' /></a>
+title: Hwijae Lee's Blog
+rss: http://feeds.feedburner.com/HwijaeLeesBlog
 ---
 {% include JB/setup %}
 
@@ -11,3 +12,4 @@ title: Hwijae Lee's Blog <a href='http://feeds.feedburner.com/HwijaeLeesBlog'><i
     <li><span>{{ post.date | date: "%Y-%m-%d" }}</span> - <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
 </ul>
+
