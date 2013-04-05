@@ -101,6 +101,11 @@ task :preview do
   system "jekyll --auto --server"
 end # task :preview
 
+desc "Delete _site"
+task :clean do
+  system "rm -rf _site"
+end # task :preview
+
 # Public: Alias - Maintains backwards compatability for theme switching.
 task :switch_theme => "theme:switch"
 
