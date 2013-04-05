@@ -104,7 +104,7 @@ end # task :preview
 desc "Delete _site"
 task :clean do
   system "rm -rf _site"
-end # task :preview
+end # task :clean
 
 # Public: Alias - Maintains backwards compatability for theme switching.
 task :switch_theme => "theme:switch"
