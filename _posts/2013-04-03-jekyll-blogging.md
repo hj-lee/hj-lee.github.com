@@ -209,3 +209,6 @@ end # task :preview
 * [확장된 Liquid 템플릿][] - 포스트 작성 시 `highlight` 태그 외에는 그다지 필요 없음.
 * [Pygments 지원 언어들][Pygments langs] - `highlight` 태그 사용 시
 * [YAML Front Matter][]
+
+<!--  LocalWords:  로 을
+ -->
