@@ -36,12 +36,21 @@ published: true
 
 * [How A Blind Teen 'Sees' With Sound][ben-cbs]
 
+<!-- <embed src="http://i.i.cbsi.com/cnwk.1d/av/video/cbsnews/atlantis2/cbsnews_player_embed.swf" type="application/x-shockwave-flash" background="#333333" width="425" height="279" allowFullScreen="true" allowScriptAccess="always" FlashVars="si=254&contentValue=999999&shareUrl=http://www.cbsnews.com/news/how-a-blind-teen-sees-with-sound/" /> -->
+
 키쉬는 이 기술을 가르치고 전파하는 것을 주목적으로 하는 [World Access For The Blind][wafb]라는 단체의 대표입니다.
 
 * [단체 소개 연설 (자전거 타기 동영상 포함)][kish-tedxsocal]
 
+<iframe width="560" height="315" src="//www.youtube.com/embed/CRA-asTuP_Y?rel=0&start=115" frameborder="0" allowfullscreen></iframe>
+
 * [홈페이지 동영상 중 - Bat School For The Blind][bat-school]
 
+<!-- <iframe width="560" height="400" src="http://video.worldaccessfortheblind.org/batboy.html" frameborder="0" allowfullscreen></iframe> -->
+
+
 * [키쉬의 TEDx 연설 (Teaching the blind to navigate the world using tongue clicks)][kish-tedx]
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/ob-P2a6Mrjs?rel=0" frameborder="0" allowfullscreen></iframe>
 
 벤이나 키쉬는 따로 배우지 않고 이 기술을 습득했는데, 뭐랄까 들어 보면 시각장애인이라는 이유로 특별 보호를 받지 않았던 것이 도움이 많이 되었던 것 같습니다.
