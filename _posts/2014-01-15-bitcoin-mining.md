@@ -9,6 +9,12 @@ published: true
 ---
 {% include JB/setup %}
 
+##### 수정내역
+
+* 2013년 1월 27일 - Eligius 관련 내용 수정, 예제 추가
+
+####
+
 [Bitcoin.org]: http://bitcoin.org/ "Bitcoin.org"
 [bitcoin-wiki]: https://en.bitcoin.it/wiki/Main_Page "Bitcoin wiki"
 [bitcoin-ko]: http://ko.wikipedia.org/wiki/%EB%B9%84%ED%8A%B8%EC%BD%94%EC%9D%B8 "비트코인 위키백과"
@@ -111,7 +117,23 @@ PC용 지갑 소프트웨어는 [bitcoin-qt][]와 [MultiBit][] 을 사용해 보
 마이닝풀을 통한 채굴을 하려면 마이닝풀 서버 URL과 유저명, 암호를 알려주면 되는데, 서버 URL은 웹 서버가 아니라 채굴서버 주소가 따로 있습니다. 이 주소는 EclipseMC의 경우 forums에 정리되어 있고, Eligius는 홈페이지 상단의 Stratum Host가 이것입니다. (마이닝풀과 채굴 소프트웨어 사이의 통신 방법도 몇 가지가 있는데 그중에 한 가지가 Stratum입니다.)
 Eligius의 경우 유저명은 자신의 비트코인 주소를 입력하고 EclipseMC를 이용할 때는 로그인 유저명이 아니라 Worker의 유저명과 암호를 알려 주어야 합니다. 아니면 Eligius와 같이 계정을 만들지 않고 자신의 비트코인 주소를 입력해도 됩니다. 두 마이닝풀 모두 일정량의 비트코인 보상이 모이면 자동으로 지정된 주소로 비트코인을 보내는 기능이 있습니다.
 
-EclipseMC의 경우 자동지급액수를 최소 0.01까지 지정할 수 있고, Eligius는 40 TBC(0.04194304 BTC)가 넘으면 유저명으로 지정된 주소로 보내줍니다. EclipseMC에 가입한 경우에는 대략 0.005 BTC가 넘으면 수동으로 자신에게 보상을 보낼 수도 있기 때문에, 소규모 채굴자라면 EclipseMC가 지갑이 채워지는 것을 보기에 더 유리하겠습니다. (Eligius도 이 자동 전송 금액을 조절하는 옵션을 만들 계획이 있는 것 같기는 합니다.) Eligius는 보상 25 BTC뿐만 아니라 액수는 많지 않지만, 거래 수수료 수입도 나누어주기 때문에, 보상액이 조금 더 클 가능성이 있습니다.
+{% highlight bash %}
+# bfgminer 로 Eligius 에서 채굴 - eligius.st 하단에 예가 있음
+bfgminer -o stratum+tcp://stratum.mining.eligius.st:3334 -O YourAddress 
+
+# bfgminer 로 EclipseMC 에서 채굴 - forum 에 예가 있음
+# (usename, password 를 수정)
+bfgminer -o stratum+tcp://us1.eclipsemc.com:3333 -O <worker>:<worker-password>
+
+# 옵션 없이 실행하면 url, username, password 를 물어봅니다.
+# cgminer 사용하는 예도 있습니다.
+{% endhighlight %}
+
+
+EclipseMC의 경우 자동지급액수를 최소 0.01까지 지정할 수 있고, Eligius는 40 TBC(0.04194304 BTC)가 넘으면 유저명으로 지정된 주소로 보내줍니다.
+자동지급액수는 EclipseMC가 더 적지만, Eligius의 경우에는 중간에 채굴을 그만 두면 1~2주 정도 후에 그동안 채굴된 비트코인을 지정된 주소로 보내주기 때문에, 작은 규모의 채굴자에게 더 유리할 수 있습니다.
+(EclipseMC에 가입한 경우에도 대략 0.005 BTC가 넘으면 수동으로 자신에게 보상을 보낼 수 있습니다.)
+Eligius는 보상 25 BTC뿐만 아니라 액수는 많지 않지만, 거래 수수료 수입도 나누어줍니다. 다만, 지급 방식이 조금 독특해서(풀이 적자 나지 않는 방식) 단순 분배 방식으로 계산한 것보다 조금 적거나 조금 늦게 지급 받을 가능성은 있습니다.
 
 ### 전용 장비가 있어야만 채굴을 할 수 있나요?
 
@@ -125,8 +147,8 @@ Cex.io 에서는 0.1 GH/s 단위로 해시비율을 거래할 수 있습니다. 
 
 ### 마지막으로
 
-전에 어떤 채굴 장비 판매 광고를 보고 단위 해시비율 당 1년 보상액이 1/100로 줄게 되더라도 남는 장사겠구나 생각했었던 적이 있었습니다. 그런데 좀 더 알아보니 실제로 2013년 한 해 동안 대략 1/500 이하로 줄었더군요. 앞으로 비트코인의 가치가 어떻게 될지, 얼마나 많이 받아들여질지 알 수 없습니다만, 어찌 되었건 비트코인 채굴 사업은 레드오션이 되어버린 것 같습니다.
-이 글은 혹시라도 난이도 고려 없이 채굴 사업에 뛰어들려는 분이 계시다면 좀 더 신중해지시기를 바라는 마음에서 쓴 것입니다.
+전에 어떤 채굴 장비 판매 광고를 보고 단위 해시비율 당 1년 보상액이 1/100로 줄게 되더라도 남는 장사겠구나 생각했었던 적이 있었습니다. 그런데 좀 더 알아보니 실제로 2013년 한 해 동안 대략 1/500 이하로 줄었더군요. 앞으로 비트코인의 가치가 어떻게 될지, 얼마나 많이 받아들여질지 알 수 없습니다만, 어찌 되었건 비트코인 채굴 사업은 **레드오션**이 되어버린 것 같습니다.
+이 글은 혹시라도 **난이도 고려** 없이 채굴 사업에 뛰어들려는 분이 계시다면 좀 더 신중해지시기를 바라는 마음에서 쓴 것입니다.
 
 앞에서도 잠깐 언급한 데로 난이도 증가율이 꺾일 가능성이 전혀 없는 것은 아닙니다만, 증가율이 꺾인다는 것은 이미 전기 요금도 뽑지 못할 만큼 포화 상태가 되었거나 비트코인 가치가 아주 많이 낮아졌다는 것을 의미할 가능성이 커 보입니다. 이러니저러니 남는 장사가 되기는 어렵겠지요.
 
@@ -168,7 +190,7 @@ Cex.io 에서는 0.1 GH/s 단위로 해시비율을 거래할 수 있습니다. 
 * [비트코인 계산기][bitcoin-calc] - 예상 채굴 수입을 계산해줍니다.
 
 
-**(여러분은 아래 주소로 저에게 비트코인을 기부하실 수 있습니다. 아주 작은 양이라도 글을 쓰는데 격려가 됩니다.)**
+<!-- **(여러분은 아래 주소로 저에게 비트코인을 기부하실 수 있습니다. 아주 작은 양이라도 글을 쓰는데 격려가 됩니다.)** -->
 
-![1AQKYEwX4kz3RbyzKi7noBH6FWnoCT3sqc]({{site.url}}/images/bitcoin-qr2.png "1AQKYEwX4kz3RbyzKi7noBH6FWnoCT3sqc")
-**1AQKYEwX4kz3RbyzKi7noBH6FWnoCT3sqc**
+<!-- ![1AQKYEwX4kz3RbyzKi7noBH6FWnoCT3sqc]({{site.url}}/images/bitcoin-qr2.png "1AQKYEwX4kz3RbyzKi7noBH6FWnoCT3sqc") -->
+<!-- **1AQKYEwX4kz3RbyzKi7noBH6FWnoCT3sqc** -->
