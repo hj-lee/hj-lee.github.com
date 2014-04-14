@@ -9,8 +9,6 @@ published: true
 ---
 {% include JB/setup %}
 
-[char-position.patch]: /assets/codes/hunspell-patch/char-position.patch
-[input-conv-putdic.patch]: /assets/codes/hunspell-patch/input-conv-putdic.patch
 [old-blog]: {% post_url 2009-04-29-emacs-korean-spellchecker %}
 
 [my-hunspell]: https://github.com/hj-lee/hunspell.git
@@ -18,6 +16,10 @@ published: true
 [hunspell-init.el]: https://github.com/hj-lee/hjlee-emacs-init/raw/master/hjlee-init-hunspell-ko.el
 
 [spellchecker-ko]: http://code.google.com/p/spellcheck-ko/ "한글 맞춤법 검사 프로젝트 홈"
+
+### 수정사항
+
+* 2014-04-14 - Bug fix 후 patch file link 제거
 
 ### 개선된 점
 
@@ -34,7 +36,7 @@ published: true
 
 Hunspell 은 두 가지가 변경되었는데, 하나는 원래의 문제였던 문자 대신 바이트를 세던 문제를 해결한 것이고, 또 하나는 개인 사전이나 세션 단어 기능이 동작하도록 수정한 것입니다.
 
-Hunspell 1.3.2 기반 수정된 소스는 [github][my-hunspell]에서 받으실 수 있습니다.(두 개의 patch 로도 만들어 놓았습니다. [char-position.patch][], [input-conv-putdic.patch][])
+Hunspell 1.3.2 기반 수정된 소스는 [github][my-hunspell]에서 받으실 수 있습니다.
 
 {% highlight bash %}
 git clone https://github.com/hj-lee/hunspell.git
@@ -88,7 +90,7 @@ hunspell-ko 는 한글 자모 코드로 사전과 규칙 데이터가 정의 되
 
 제가 작업을 시작할 때 이 사실을 몰라서, 류창우님이 관리하던 hunspell 소스를 fork 해와서 작업을 시작해 버렸었습니다. 나중에 알고 나서 1.3.2 기준으로 작업을 하긴 했지만, 그 때문에 히스토리에는 흔적이 고스란히 남아있습니다.
 
-#### 문자 위치 [file][char-position.patch]
+#### 문자 위치
 
 ispell 호환 모드, 혹은 기본 출력 모드 에서 바이트 위치 대신 문자 위치를 표시하도록 변경한 부분입니다.
 
@@ -96,7 +98,7 @@ ispell 호환 모드, 혹은 기본 출력 모드 에서 바이트 위치 대신
 pipe를 사용해서 통신하는 다른 프로그램들과는 문제가 될 수도 있습니다.
 다만, 제가 아는 한에서는 emacs 가 이렇게 동작하는 대표 프로그램이고, 이 패치는 emacs 가 hunspell 과 잘 동작하게 해줍니다.
 
-#### 입력 변환 [file][input-conv-putdic.patch]
+#### 입력 변환
 
 이 패치는 `.aff` 파일에 `ICONV` 항목이 있는 경우 개인 사전이나 세션 중의 단어를 추가할 때 무조건 `ICONV` 변환을 거치도록 합니다. 
 
