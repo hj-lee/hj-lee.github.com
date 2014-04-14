@@ -17,7 +17,7 @@ published: true
 
 [spellchecker-ko]: http://code.google.com/p/spellcheck-ko/ "한글 맞춤법 검사 프로젝트 홈"
 
-### 수정사항
+### 문서 수정 사항
 
 * 2014-04-14 - Bug fix 후 patch file link 제거
 
